@@ -13,7 +13,7 @@ import { Weather } from '../../models/Weather';
 })
 export class WeatherShowComponent implements OnInit {
   @Input() searchName = '';
-  iconUrl = 'http://openweathermap.org/img/w/';
+  iconUrl = 'https://openweathermap.org/img/w/';
   url = '';
   weathers$: Observable<Weather[]>;
   weather: Weather | undefined;
