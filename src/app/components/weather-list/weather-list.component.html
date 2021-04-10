@@ -1,0 +1,8 @@
+<div>
+  Weather in:
+  <ol>
+    <li *ngFor="let weather of weathers; let i = index">
+      {{weather.city}} {{weather.temperature | temperature}}&deg; {{weather.description}}
+    </li>
+  </ol>
+</div>

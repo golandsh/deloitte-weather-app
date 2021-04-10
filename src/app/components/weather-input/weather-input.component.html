@@ -1,0 +1,28 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose City</mat-label>
+      <mat-select formControlName="city" ngDefaultControl>
+        <mat-option *ngFor="let city of cities" [value]="city" [disabled]="!enabled">
+          {{ city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input matInput [readonly]="!enabled" type="text" formControlName="units"
+             placeholder="Units(metric/standard/etc" autocomplete="off">
+      <mat-error *ngIf="form.controls['units'].hasError('unitsValidation')">
+        Permitted values are metric, standard or imperial
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-icon-button type="submit" [disabled]="!enabled">
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </form>
+
+  <app-weather-show [searchName]="city" *ngIf="city"></app-weather-show>
+</div>
